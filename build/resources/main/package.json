@@ -1,0 +1,73 @@
+{
+    "name": "SMART",
+    "label": "[[label]]",
+    "description": "[[description]]",
+    "group": "com.automationanywhere",
+    "artifactName": "SMART",
+    "packageVersion": "1.0.0-20211106-114228",
+    "codeVersion": "1.0.0-20211106-114228",
+    "author": "",
+    "commands": [
+        {
+            "name": "smartBackend",
+            "label": "Authorize",
+            "description": "Retrieves Access Token using SMART Backend Services Authorization",
+            "nodeLabel": "Authorize with Private Key",
+            "minimumControlRoomVersion": "8750",
+            "minimumBotAgentVersion": "20.11",
+            "mainClass": "com.automationanywhere.botcommand.samples.commands.basic.AuthorizeCommand",
+            "icon": "smart.svg",
+            "comment": true,
+            "returnType": "STRING",
+            "returnSubtype": "UNDEFINED",
+            "returnLabel": "Access Token",
+            "returnRequired": true,
+            "returnDescription": "Returns access token in a string variable",
+            "attributes": [
+                {
+                    "name": "url",
+                    "label": "Base URL",
+                    "description": "e.g. https://{hostname}/{instance}/ e.g. for EPIC sandbox https://fhir.epic.com/interconnect-fhir-oauth/",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "tokenEndpoint",
+                    "label": "Token Endpoint",
+                    "description": "e.g. oauth2/token for FHIR EPIC sandbox",
+                    "type": "TEXT",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "clientId",
+                    "label": "Client ID",
+                    "type": "CREDENTIAL",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                },
+                {
+                    "name": "pemFile",
+                    "label": "Private Key File (.pem)",
+                    "description": "Private Key file associated with the RSA public key used to register the application with the FHIR server",
+                    "type": "FILE",
+                    "rules": [
+                        {
+                            "name": "NOT_EMPTY"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
